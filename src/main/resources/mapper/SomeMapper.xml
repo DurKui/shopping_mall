@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.tedu.shopping_mall.mapper.XmlMapper">
+    <select id="findUsername" resultType="java.lang.String">
+    SELECT usnum FROM users WHERE usnum= #{name}
+    </select>
+    <select id="judgelogin" resultType="cn.tedu.shopping_mall.entity.login">
+        SELECT usnum,upassword FROM users WHERE usnum=#{name} and upassword=#{password}
+    </select>
+    <select id="SelectNotice" resultType="cn.tedu.shopping_mall.entity.notice">
+        SELECT * FROM notice
+    </select>
+    <select id="Selectgoods" resultType="cn.tedu.shopping_mall.entity.goods">
+        SELECT *FROM goods where govri=#{vri}
+    </select>
+    <select id="SelectOrders" resultType="cn.tedu.shopping_mall.entity.orderbean">
+        SELECT * FROM orders where usnum=#{name} and State =#{state}
+    </select>
+    <select id="SelectOrder" resultType="cn.tedu.shopping_mall.entity.orderbean">
+        SELECT * FROM orders where usnum=#{name}
+    </select>
+    <select id="Selectshopcart" resultType="cn.tedu.shopping_mall.entity.shopcart">
+        SELECT usernum,gonum,goname,govalue,gocount FROM collection WHERE usernum=#{name}
+    </select>
+   <update id="updatenum">
+       UPDATE num set gonum=gonum+1 WHERE p= '1'
+   </update>
+    <insert id="insertUser">
+        INSERT INTO users(usnum, upassword,email,usaddress)
+                     values(#{name}, #{password},#{email},#{address} )
+    </insert>
+    <select id="Selectaddress" resultType="java.lang.String">
+        SELECT usaddress FROM users WHERE usnum =  #{name}
+    </select>
+    <insert id="insertorders">
+        INSERT INTO orders(gonum,usnum,value,state,address) values(#{gonum},#{name},#{sum},'未发货',#{address})
+    </insert>
+    <select id="selectgonum" resultType="java.lang.String">
+        SELECT gonum from num
+    </select>
+    <insert id="insertcollection">
+        INSERT INTO collection(usernum,gonum,govalue,goname,gocount) values(#{name},#{gonum},#{govalue},#{goname},'1')
+    </insert>
+    <delete id="deleteByIds">
+    delete from collection
+    where gonum=#{gonum} and usernum=#{name}
+    </delete>
+    <select id="selectupassword" resultType="java.lang.String">
+        SELECT upassword FROM users WHERE usnum = #{num}
+    </select>
+    <update id="updatepass">
+        UPDATE users SET upassword = #{passnew} WHERE usnum =#{num}
+    </update>
+    <select id="Selectadm" resultType="cn.tedu.shopping_mall.entity.adm">
+        SELECT admnum,admpass,admname FROM adm WHERE admnum=#{name} and admpass=#{password}
+    </select>
+    <insert id="insertann">
+        INSERT INTO notice(date, value)
+                    values( #{now} , #{value} )
+    </insert>
+    <select id="SelectOrder3" resultType="cn.tedu.shopping_mall.entity.orderbean">
+        SELECT * FROM orders
+    </select>
+    <update id="updateindent">
+        UPDATE orders SET value = #{value}, state =#{state}, address = #{add}
+                     WHERE gonum = #{gonum} AND usnum = #{usnum}
+    </update>
+    <delete id="deleteindent">
+        DELETE FROM orders WHERE gonum = #{num} AND usnum = #{usnum}
+    </delete>
+    <select id="Selectgood" resultType="cn.tedu.shopping_mall.entity.goods">
+        SELECT * FROM goods
+    </select>
+    <update id="updategoods">
+        UPDATE goods SET goname = #{name}, govri = #{vri},
+                    govalue = #{value}, godetails = #{details}, goeva = #{eva}
+                    WHERE gonum = #{num}
+    </update>
+    <insert id="insertgoods">
+        INSERT INTO goods(gonum,goname,gofile,govri,govalue,godetails,goeva)
+                    VALUES( #{num} , #{name}, null,#{vri},#{value},#{details},#{eva})
+    </insert>
+    <delete id="deletegoods">
+        DELETE FROM goods WHERE gonum = #{num}
+    </delete>
+    <select id="selectdays" resultType="java.lang.String">
+        SELECT days from users where usnum= #{name}
+    </select>
+    <update id="updatedays">
+        update users SET days=days+1 where usnum=#{name}
+    </update>
+    <select id="Selectmessages" resultType="cn.tedu.shopping_mall.entity.messages">
+        SELECT * FROM messages
+    </select>
+</mapper>

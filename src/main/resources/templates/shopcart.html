@@ -1,0 +1,157 @@
+<html lang="cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>购物车</title>
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/font/iconfont.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/index2.css">
+    <script type="text/javascript" src="/layui/layui.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script type="text/javascript" src="/js/shoppingCart.js"></script>
+    <link rel="stylesheet" href="/Mycss/style.css"/>
+
+</head>
+<body>
+<header>
+    <a href="#" class="logo"> <i class="iconfont icon-shangcheng" style="font-size: 30px;"></i>农产品商城</a>
+    <ul class="menu">
+        <li class="layui-nav-item layui-this"><a href="index"><i class="layui-icon layui-icon-home" style=";font-size: 15px;"></i> 商城首页</a></li>
+        <li class="layui-nav-item"><a href="shopcart"><i class="layui-icon layui-icon-cart-simple" style="font-size: 15px;"></i> 购物车</a></li>
+        <li>
+            <a href="userindent"><i class="layui-icon layui-icon-form" style="font-size: 15px;"></i> 我的订单</a>
+            <ul class="submenu">
+                <li><a href="redeliver">未发货</a></li>
+                <li><a href="delivered">已发货</a></li>
+            </ul>
+        </li>
+        <li class="layui-nav-item">
+            <a href="calendar" target="_blank"><i class="iconfont icon-qiandao" style="font-size: 15px;"></i> 签到</a>
+        </li>
+        <li class="layui-nav-item">
+            <a href="useran"><i class="layui-icon layui-icon-layer" style="font-size: 15px;"></i> 公告栏</a>
+        </li>
+      <!--  <li class="layui-nav-item">
+            <a href="message"><i class="layui-icon layui-icon-layer" style="font-size: 15px;"></i> 留言板</a>
+        </li>-->
+
+        <li class="layui-nav-item" style="width: 250px">
+            <span>
+            <a href="javascript:;">
+                  <i class="iconfont icon-yonghu" style="font-size: 25px;" th:text="${name}"></i>
+
+            </a>
+            </span>
+            <ul class="submenu">
+                <li><a href="userserc">修改密码</a></li>
+            </ul>
+            <dl class="layui-nav-child">
+                <dd><a href="userinf">基本资料</a></dd>
+                <dd><a href="userserc">安全设置</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a href="userlogin">
+                退出登录 <i class="layui-icon layui-icon-logout" style="font-size: 15px;"></i>
+            </a>
+        </li>
+    </ul>
+</header>
+<section class="banner"></section> <div class="sidebar">
+    <ul>
+
+        <li><a href="fru" style="font-size: 20px;">水果</a></li>
+        <li><a href="veg" style="font-size: 20px;">蔬菜</a></li>
+        <li><a href="aqu_product" style="font-size: 20px;">水产</a></li>
+        <li><a href="meat" style="font-size: 20px;">禽畜肉蛋</a></li>
+        <li><a href="noodles" style="font-size: 20px;">粮油米面</a></li>
+        <li><a href="asp" style="font-size: 20px;">农副加工</a></li>
+        <li><a href="plant" style="font-size: 20px;">苗木花草</a></li>
+        <li><a href="http://wpa.qq.com/msgrd?v=3&uin=1311226982&site=qq&menu=yes"  target="_blank" class="ion-social-tux" style="font-size: 20px">售后</a></li>
+    </ul>
+</div>
+<a class="btn" href="#"></a>
+
+
+<div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="top:30%">
+        <table id="cartTable" style="margin-left: 200px ;margin-top: 150px ;top: 30%">
+            <thead>
+            <tr>
+                <th><label><input class="check-all check" type="checkbox"/>&nbsp;全选</label></th>
+                <th>商品</th>
+                <th>单价</th>
+                <th>数量</th>
+                <th>小计</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="s: ${r}">
+                <td class="checkbox" ><input class="check-one check" type="checkbox"/></td>
+                <td class="goods" ><img th:src="@{/images/{filename}.jpg(filename=${s.getGonum().trim()})}"/><span style="color: #0f0" th:text="${s.getGoname()}"></span></td>
+                <td class="price" style="color: #0f0" th:text="${s.getGovalue()}"></td>
+                <td class="count">
+                    <span class="reduce">-</span>
+                    <input class="count-input" type="text"  th:value="${s.getGocount()}">
+                    <span class="add">+</span></td>
+                <td class='subtotal' th:text="${s.getGovalue()*s.getGocount()}"><%=rs.getDouble(4)*rs.getInt(5)%></td>
+                <td class="operation"><span class="delete"><a th:href="@{delroomServlet?gonum={gonum}(gonum=${s.getGonum()})}" style="color: #0f0">删除</a></span></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="foot" id="foot" style="margin-left: 200px ;margin-top: 10px" >
+            <label class="fl select-all"><input type="checkbox" class="check-all check"/>&nbsp;全选</label>
+            <a class="fl delete" id="deleteAll" href="javascript:;">删除</a>
+            <form action="">
+                <div class="fr closing"><a href="cartpay">结 算</a></div>
+            </form>
+            <div class="fr total">合计：￥<span id="priceTotal">price</span></div>
+            <div class="fr selected" id="selected">已选商品
+                <span id="selectedTotal">0</span>件
+                <span class="arrow up">︽</span>
+                <span class="arrow down">︾</span>
+            </div>
+
+            <div class="selected-view">
+                <div id="selectedViewList" class="clearfix">
+                    <!--插入的模板-->
+                    <!--<div><img src="images/1.jpg"><span>取消选择</span></div>-->
+                </div>
+                <span class="arrow">◆<span>◆</span></span>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+</div>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+
+    });
+</script>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+<script>
+    window.onscroll=function(){
+        document.querySelector('header').classList.toggle('sticky',window.scrollY>0)
+    }
+    $(".btn").click(function(){
+        $('.btn').toggleClass('btnc')
+        $('.sidebar').toggleClass('side')
+    })
+</script>
+</body>
+</html>

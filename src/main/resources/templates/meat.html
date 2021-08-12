@@ -1,0 +1,122 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>商品--禽畜肉蛋</title>
+    <link rel="stylesheet" type="text/css" href="/Mycss/goods.css">
+    <link rel="stylesheet" href="/font/iconfont.css" type="text/css">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/css/index2.css">
+    <link rel="stylesheet" type="text/css" href="/css/index3.css">
+    <script type="text/javascript" src="/layui/layui.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+<style type="text/css">
+    body::-webkit-scrollbar {
+        display:none
+    }
+</style>
+<body>
+<header>
+    <a href="#" class="logo"> <i class="iconfont icon-shangcheng" style="font-size: 30px;"></i>农产品商城</a>
+    <ul class="menu">
+        <li class="layui-nav-item layui-this"><a href="index"><i class="layui-icon layui-icon-home" style=";font-size: 15px;"></i> 商城首页</a></li>
+        <li class="layui-nav-item"><a href="shopcart"><i class="layui-icon layui-icon-cart-simple" style="font-size: 15px;"></i> 购物车</a></li>
+        <li>
+            <a href="userindent"><i class="layui-icon layui-icon-form" style="font-size: 15px;"></i> 我的订单</a>
+            <ul class="submenu">
+                <li><a href="redeliver">未发货</a></li>
+                <li><a href="delivered">已发货</a></li>
+            </ul>
+        </li>
+        <li class="layui-nav-item">
+            <a href="calendar" target="_blank"><i class="iconfont icon-qiandao" style="font-size: 15px;"></i> 签到</a>
+        </li>
+        <li class="layui-nav-item">
+            <a href="useran"><i class="layui-icon layui-icon-layer" style="font-size: 15px;"></i> 公告栏</a>
+        </li>
+       <!-- <li class="layui-nav-item">
+            <a href="message"><i class="layui-icon layui-icon-layer" style="font-size: 15px;"></i> 留言板</a>
+        </li>-->
+
+        <li class="layui-nav-item" style="width: 250px">
+            <span>
+            <a href="javascript:;">
+                  <i class="iconfont icon-yonghu" style="font-size: 25px;" th:text="${name}"></i>
+
+            </a>
+                 </span>
+            <ul class="submenu">
+                <li><a href="userserc">修改密码</a></li>
+            </ul>
+
+
+        </li>
+        <li class="layui-nav-item">
+            <a href="userlogin">
+                退出登录 <i class="layui-icon layui-icon-logout" style="font-size: 15px;"></i>
+            </a>
+        </li>
+    </ul>
+</header>
+<section class="banner"></section> <div class="sidebar">
+    <ul>
+
+        <li><a href="fru" style="font-size: 20px;">水果</a></li>
+        <li><a href="veg" style="font-size: 20px;">蔬菜</a></li>
+        <li><a href="aqu_product" style="font-size: 20px;">水产</a></li>
+        <li><a href="meat" style="font-size: 20px;">禽畜肉蛋</a></li>
+        <li><a href="noodles" style="font-size: 20px;">粮油米面</a></li>
+        <li><a href="asp" style="font-size: 20px;">农副加工</a></li>
+        <li><a href="plant" style="font-size: 20px;">苗木花草</a></li>
+        <li><a href="http://wpa.qq.com/msgrd?v=3&uin=1311226982&site=qq&menu=yes"  target="_blank" class="ion-social-tux" style="font-size: 20px">售后</a></li>
+    </ul>
+</div>
+<a class="btn" href="#"></a>
+
+<div class="layui-body" style="position: absolute;top:15%">
+    <!-- 内容主体区域 -->
+    <div style="margin-left: 45px">
+        <div class="layui-row">
+
+            <div class="layui-col-xs3" th:each="t: ${rs}">
+                <a href="details">
+                    <div class="box">
+                        <img th:src="@{/images/{filename}.jpg(filename=${t.getGonum()})}">
+                        <p class="review"th:text="${t.getGodetails()}"></p>
+                        <div class="appraise"th:text="${t.getGoeva()}"></div>
+                        <div class="info">
+                            <h4 th:text="${t.getGoname()}">&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                            <em>|</em>
+                            <span th:text="${t.getGovalue()}">￥&nbsp;&nbsp;&nbsp;</span>
+                            <br>
+                            <a href=cartpay><button class="layui-btn layui-btn-normal">立即购买</button> </a>
+                            <a th:href="@{addcarServlet?gonum= {gonum}&govalue={govalue}&goname={goname}&gofile={gofile} (gonum=${t.getGonum()},govalue=${t.getGovalue()},goname=${t.getGoname()},gofile=${t.getGofile()})}"> <button class="layui-btn layui-btn-danger">加入购物车</button></a>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</div>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+<script>
+    window.onscroll=function(){
+        document.querySelector('header').classList.toggle('sticky',window.scrollY>0)
+    }
+    $(".btn").click(function(){
+        $('.btn').toggleClass('btnc')
+        $('.sidebar').toggleClass('side')
+    })
+</script>
+</body>
+</html>

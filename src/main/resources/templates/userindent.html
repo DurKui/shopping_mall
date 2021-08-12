@@ -1,0 +1,156 @@
+<html lang="cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>我的订单</title>
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/font/iconfont.css" type="text/css">
+    <script type="text/javascript" src="/layui/layui.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/index2.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <style type="text/css">
+        table
+        {
+            border-collapse: collapse;
+            margin: 0 auto;
+            text-align: center;
+        }
+        table td, table th
+        {
+            border: 1px solid #cad9ea;
+            color: #666;
+            height: 30px;
+        }
+        table thead th
+        {
+            background-color: #CCE8EB;
+            width: 100px;
+        }
+        table tr:nth-child(odd)
+        {
+            background: #fff;
+        }
+        table tr:nth-child(even)
+        {
+            background: #F5FAFA;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <a href="#" class="logo">  <i class="iconfont icon-shangcheng" style="font-size: 30px;"></i>农产品商城</a>
+    <ul class="menu">
+        <li class="layui-nav-item layui-this"><a href="index"><i class="layui-icon layui-icon-home" style=";font-size: 15px;"></i> 商城首页</a></li>
+        <li class="layui-nav-item"><a href="shopcart"><i class="layui-icon layui-icon-cart-simple" style="font-size: 15px;"></i> 购物车</a></li>
+        <li>
+            <a href="userindent"><i class="layui-icon layui-icon-form" style="font-size: 15px;"></i> 我的订单</a>
+            <ul class="submenu">
+                <li><a href="redeliver">未发货</a></li>
+                <li><a href="delivered">已发货</a></li>
+            </ul>
+        </li>
+        <li class="layui-nav-item">
+            <a href="useran"><i class="layui-icon layui-icon-layer" style="font-size: 15px;"></i> 公告栏</a>
+        </li>
+      <!--  <li class="layui-nav-item">
+            <a href="message"><i class="layui-icon layui-icon-layer" style="font-size: 15px;"></i> 留言板</a>
+        </li>-->
+        <li class="layui-nav-item" style="width: 250px">
+            <span >
+            <a href="javascript:;">
+                <i class="iconfont icon-yonghu" style="font-size: 25px;" th:text="${name}"></i>
+
+            </a>
+                 </span>
+            <ul class="submenu">
+                <li><a href="userserc">修改密码</a></li>
+            </ul>
+
+
+        </li>
+        <li class="layui-nav-item">
+            <a href="userlogin">
+                退出登录 <i class="layui-icon layui-icon-logout" style="font-size: 15px;"></i>
+            </a>
+        </li>
+    </ul>
+</header>
+<section class="banner"></section> <div class="sidebar">
+    <ul>
+
+        <li><a href="fru" style="font-size: 20px;">水果</a></li>
+        <li><a href="veg" style="font-size: 20px;">蔬菜</a></li>
+        <li><a href="aqu_product" style="font-size: 20px;">水产</a></li>
+        <li><a href="meat" style="font-size: 20px;">禽畜肉蛋</a></li>
+        <li><a href="noodles" style="font-size: 20px;">粮油米面</a></li>
+        <li><a href="asp" style="font-size: 20px;">农副加工</a></li>
+        <li><a href="plant" style="font-size: 20px;">苗木花草</a></li>
+        <li><a href="http://wpa.qq.com/msgrd?v=3&uin=1311226982&site=qq&menu=yes"  target="_blank" class="ion-social-tux" style="font-size: 20px">售后</a></li>
+    </ul>
+</div>
+<a class="btn" href="#"></a>
+
+
+
+<div class="layui-body" style="top:20%">
+    <!-- 内容主体区域 -->
+    <table width="90%" class="table">
+        <blockquote class="layui-elem-quote layui-quote-nm">
+            <legend style=" font-size: 30px ;color: #fff">已发货订单</legend>
+        </blockquote>
+        <hr class="layui-bg-black">
+        <thead>
+        <tr>
+            <th>
+                订单编号
+            </th>
+            <th>
+                价格
+            </th>
+            <th>
+                状态
+            </th>
+            <th>
+                地址
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="t: ${rs}">
+            <td th:text="${t.getGonum()}"></td>
+            <td th:text="${t.getUsnum()}"></td>
+            <td th:text="${t.getState()}"></td>
+            <td th:text="${t.getAddress()}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</div>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+<script>
+    window.onscroll=function(){
+        document.querySelector('header').classList.toggle('sticky',window.scrollY>0)
+    }
+    $(".btn").click(function(){
+        $('.btn').toggleClass('btnc')
+        $('.sidebar').toggleClass('side')
+    })
+</script>
+</body>
+</html>
+

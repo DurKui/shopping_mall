@@ -1,0 +1,145 @@
+<html lang="cn" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 商品管理</title>
+    <link rel="stylesheet" type="text/css" href="/Mycss/goods.css">
+    <link rel="stylesheet" href="/font/iconfont.css" type="text/css">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/css/index2.css">
+    <link rel="stylesheet" type="text/css" href="/css/index3.css">
+    <script type="text/javascript" src="/layui/layui.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+</head>
+<body style="overflow: hidden">
+<header>
+    <a href="#" class="logo">  <i class="iconfont icon-guanliyuan" style="font-size: 40px;"></i>商品管理</a>
+    <ul class="menu">
+        <li class="layui-nav-item layui-this"><a href="adminmain"><i class="layui-icon layui-icon-home" style="font-size: 15px;"></i> 主界面</a></li>
+        <li class="layui-nav-item" style="width: 150px"><a href="ann"><i class="layui-icon layui-icon-layer" style="font-size: 15px;"></i> 公告栏管理</a></li>
+        <li class="layui-nav-item">
+            <a href="ordermana"><i class="layui-icon layui-icon-form" style="font-size: 15px;"></i> 订单管理</a>
+        </li>
+        <li class="layui-nav-item layui-nav-itemed">
+            <a class="" href="goodmana"><i class="iconfont icon-shangpin" style="font-size: 15px"></i>商品管理</a>
+        </li>
+        <li class="layui-nav-item" style="width: 250px">
+            <a href="javascript:;">管理员：</a>
+            <a href="javascript:;" th:text="${name}">
+            </a>
+        </li>
+        <li class="layui-nav-item">
+            <a href="adminlogin">
+                退出登录 <i class="layui-icon layui-icon-logout" style="font-size: 15px;"></i>
+            </a>
+        </li>
+    </ul>
+</header>
+<section class="banner"></section>
+<div class="layui-body" style="position: absolute;left: 10%;top: 20% ;color: #fff">
+    <!-- 内容主体区域 -->
+    <h2>修改订单信息</h2>
+    <hr>
+    <form action="updateindent" method="post">
+        <label class="layui-form-label" style="width: 100px">修改信息</label>
+        <div class="layui-input-block">
+            <div class="layui-form-item">
+                <div class="layui-input-inline">
+                    <input type="text" name="gono" required  lay-verify="required" placeholder="请输入订单编号" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-input-inline">
+                    <input type="text" name="usnum" required  lay-verify="required" placeholder="请输入用户编号" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-input-inline">
+                    <input type="text" name="value" required  lay-verify="required" placeholder="请输入订单价格" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <div class="layui-input-inline">
+                    <input type="text" name="state" required  lay-verify="required" placeholder="请输入订单状态" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-input-inline">
+                    <input type="text" name="usaddress" required  lay-verify="required" placeholder="请输入订单地址" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-normal" type="submit">立即提交</button>
+            </div>
+        </div>
+    </form>
+    <hr>
+    <h2>删除订单</h2>
+    <br>
+    <form action="deleteindent" method="post">
+        <div class="layui-form-item">
+            <label class="layui-form-label" style="width: 100px">订单编号</label>
+            <div class="layui-input-inline">
+                <input type="text" name="gono1" required  lay-verify="required" placeholder="请输入订单编号" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-input-inline">
+                <input type="text" name="usnum" required  lay-verify="required" placeholder="请输入用户编号" autocomplete="off" class="layui-input">
+            </div>
+            <button class="layui-btn layui-btn-danger">删除</button>
+        </div>
+    </form>
+    <hr>
+    <table width="90%" class="table" style="color: #fff">
+        <blockquote class="layui-elem-quote layui-quote-nm">
+            订单管理
+        </blockquote>
+        <hr class="layui-bg-black">
+        <thead>
+        <tr>
+            <th>
+                订单编号
+            </th>
+            <th>
+                用户编号
+            </th>
+            <th>
+                价格
+            </th>
+            <th>
+                状态
+            </th>
+            <th>
+                地址
+            </th>
+        </tr>
+        </thead>
+        <tbody>  <tr th:each="t: ${rs}">
+            <td th:text="${t.getGonum()}"></td>
+            <td th:text="${t.getUsnum()}"></td>
+            <td th:text="${t.getValue()}"></td>
+            <td th:text="${t.getState()}"></td>
+            <td th:text="${t.getAddress()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="layui-footer">
+   <span class="layui-breadcrumb" lay-separator="|">
+           <a href="aboutus" target="_blank">关于我们&七天无理由退换货</a>
+
+</span>
+</div>
+</div>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+</body>
+</html>
+

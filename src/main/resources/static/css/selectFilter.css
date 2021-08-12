@@ -1,0 +1,155 @@
+/**
+ * selectFilter  --v1.0
+ * 
+ **/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+li {
+	list-style: none;
+}
+
+.filter-disabled {
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.filter-box {
+    position: relative;
+}
+
+.filter-box select {
+	display: none;
+}
+
+.filter-text {
+	overflow: hidden;
+	cursor: pointer;
+	
+	
+} 
+ .sea-div .filter-box input[type=text] {
+    width: 205px;
+    height: 33px;
+    line-height: 33px;
+    color: #3996ff;
+    font-family: arial;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    text-indent: 10px;
+    display: block;
+    float: left;
+	margin-left: 25px;
+}
+
+.filter-text input {
+	font-size: 13px;
+}
+
+.filter-text .filter-title {
+	width: 205px;
+	height: 36px;
+	line-height: 36px;
+	border: 0;
+	background-color: transparent;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 0;
+	cursor: pointer;
+	margin-left: 0;
+}
+
+.filter-list {
+	display: none;
+	width: 205px;
+	max-height: 300px;
+	background-color: #fff;
+	font-size: 14px;
+	position: absolute;
+	bottom: 42px;
+	left: 50px;
+	border: 1px solid #e6e6e6;
+	overflow: auto;
+	margin-left: 60px;
+}
+
+.filter-list li.filter-null a {
+	color: #d2d2d2;
+}
+
+.filter-list li a {
+	width: 205px;
+	display: block;
+	padding: 0 10px;
+	line-height: 36px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor: pointer;
+	
+}
+
+.filter-list li:hover {
+	background-color: #f2f2f2;
+}
+
+.filter-list li.filter-selected {
+	background-color: #3996ff;
+}
+
+.filter-list li.filter-selected a{
+	display: block;
+	color: #fff;
+}
+
+.filter-list li.filter-disabled {
+	background-color: #fff;
+}
+
+.filter-list li.filter-disabled a{
+	display: block;
+	color: #d2d2d2;
+}
+
+.filter-list li.filter-disabled:hover a {
+	cursor: not-allowed!important;
+	background-color: #fff;
+}
+
+.icon {
+	position: absolute;
+}
+
+.icon-filter-arrow {
+	width: 8px;
+	height: 6px;
+	background-repeat: no-repeat;
+    background-image: url(../images/icon_arrow_down_x2.png);
+    background-size: 100%;
+    right: 60px;
+    top: 20px;
+    transition: all .2s;
+}
+
+.icon-filter-arrow.filter-show {
+	-webkit-transform: rotate(-180deg);
+	transform: rotate(-180deg);
+}
+
+.filter-list::-webkit-scrollbar {
+	width: 4px;
+	height: 4px;
+}
+
+.filter-list::-webkit-scrollbar-track {
+	background: #fff 
+}
+
+.filter-list::-webkit-scrollbar-thumb {
+	background: #CBCBCB;
+}

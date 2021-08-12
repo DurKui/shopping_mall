@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+.form_box{
+	width: 500px;
+	height: 500px;
+	display: block;
+	margin: 200px auto;
+	text-align: center;
+}
+.formliinput{
+	width: 450px;
+	height: 450px;
+    font-size: 36px;
+    background-color: black;
+    color: white;
+	cursor: pointer;
+}

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>用户登录</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="/css/css.css" rel="stylesheet" type="text/css" />
+    <script src="/js/jquery-1.12.4.min.js"></script>
+    <script src="/js/rem.js"></script>
+    <!-- 登录样式 -->
+    <script type="text/javascript" src="/js/jquery.min2.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(".name input").focus(function(){
+                $(this).prev("i").css({"background-image":"url(images/user2.png)"});
+            });
+            $(".name input").blur(function(){
+                $(this).prev("i").css({"background-image":"url(images/user1.png)"});
+            });
+            $(".password input").focus(function(){
+                $(this).prev("i").css({"background-image":"url(images/password2.png)"});
+            });
+            $(".password input").blur(function(){
+                $(this).prev("i").css({"background-image":"url(images/password1.png)"});
+            });
+        });
+    </script>
+    <style type="text/css">
+        a {
+            text-decoration: none;
+            float: right;
+            color: #FFFFFF;
+        }
+        .i1{
+            float: right;
+            margin-top: 10px;
+            font-size: 23px;
+        }
+        .i1:hover{
+            color: #969696
+        }
+        .i2{
+            float: left;
+            margin-top: 10px;
+            font-size: 23px;
+        }
+        .i2:hover{
+            color: #969696
+        }
+    </style>
+</head>
+
+<body>
+<div class="pc">
+    <a href="javascript:;" onclick="history.go(-1)" class="return"></a>
+
+    <div class="login">
+        <div class="title-p1">
+            <i>Admin Login</i>
+        </div>
+        <aside>
+            <a class="i1" href="userlogin">用户登录</a>
+            <a class="i2" href="adminlogin">管理员登录</a>
+            <em>
+                <img src="/images/user.png">
+            </em>
+            <form action="adminlogin_handle" method="post">
+                <p class="name"><i></i><input style="color:#fff" name="uid" type="text" id="uid" autocomplete="off" easyform="length:4-16;char-normal;real-time;" message="用户名必须为4—16位的英文字母或数字" easytip="disappear:lost-focus;theme:blue;" ajax-message="用户名已存在!"></p>
+                <p class="password"><i></i><input style="color:#fff" name="psw1" type="password" id="psw1" easyform="length:6-16;" message="密码必须为6—16位" easytip="disappear:lost-focus;theme:blue;"></p>
+                <button>登录</button>
+                <p class="remember"><input type="checkbox" name="remember">记住密码</p>
+              <!--  <p class="regist"><span>没有账号?</span><a href="register">立即注册</a></p>-->
+                <div class="clear"></div>
+            </form>
+        </aside>
+    </div>
+</div>
+
+<div class="wap">
+    <img src="/wapimages/logo.png" alt="" class="logo">
+    <a href="javascript:;" onclick="history.go(-1)" class="return"></a>
+
+    <div class="login">
+        <form action="">
+            <img src="/wapimages/login_01.png" class="login-img" alt="">
+            <input type="text" class="txt" placeholder="手机号">
+            <input type="password" class="txt" placeholder="密 码">
+            <div class="forget"><a href="">忘记密码？</a></div>
+            <input type="submit" class="sub" value="登 录">
+          <!--  <a href="register" class="sign_a">还没有账号？点我注册！！</a>-->
+        </form>
+    </div>
+</div>
+<script>
+    var error ='<%=request.getParameter("error")%>';
+    if(error=='yes'){
+        alert("登陆失败，用户名或密码错误！");
+    }
+</script>
+</body>
+</html>

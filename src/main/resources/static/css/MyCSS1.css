@@ -1,0 +1,87 @@
+header{
+    display: flex; /*弹性布局：能够扩展和收缩 flex 容器内的元素，以最大限度地填充可用空间*/
+    justify-content: center; /*弹性盒子元素在主轴（横轴）方向上的对齐方式*/
+    align-items: center;
+    background-color: rgb(174, 250, 197);
+    /*background: linear-gradient(#99f,#f99);*/
+}
+.container{
+    position: relative;
+    width: 900px;
+    height: 70px;
+    background-color: rgb(223, 255, 192);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;/* flex布局，子元素将平分空间排列。*/
+    box-shadow:  1.5px 2px 2px rgb(0, 0, 0),inset  3px 3px 4px rgba(255,255,255,0.1); /*inset设置内投影*/
+    float:right;
+}
+
+.label{
+    width: 180px;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    font-size: 14px;
+    list-style-type: none; 
+    float: left;
+}
+a{
+    color: rgb(255, 255, 255);
+    text-decoration: none; /*去除默认下划线*/
+}
+li a:hover{
+color: aqua;
+}
+.change{  /*定义一个change类，哪个标签被选中时添加*/
+    color: aqua;          
+    border-radius: 15px;  /*标签的弧度*/
+    box-shadow: inset 3px 3px 4px rgb(0, 0, 0),/*与上方container容器的颜色互换 达到凹陷的效果*/
+        1.5px 2px 2px rgba(255,255,255,0.1);      
+}
+.line{
+    position: absolute;
+    left: 6px;
+    bottom: 0;
+    height: 4px;
+    width: 175px;
+    background-color: rgb(60, 223, 223);
+    border-radius: 2px;
+}
+#list{
+    list-style: none;
+    background-color: #aefac5;
+    text-align: center;
+    width: 170px;
+    line-height: 70px;
+    border-radius: 5px;
+    z-index: 999;/*仅能在定位元素上奏效 例如 position:absolute;*/
+    position: absolute;
+    left: 10px;
+    top: -300px;
+}
+#list2{
+    list-style: none;
+    background-color: #dfffc0;
+    text-align: center;
+    width: 170px;
+    line-height: 70px;
+    border-radius: 5px;
+    z-index: 999;/*仅能在定位元素上奏效 例如 position:absolute;*/
+    position: absolute;
+    left: 550px;
+    top: -300px;
+}
+#project:hover ~ #list,#person:hover ~ #list2{
+    top: 70px;
+    transition-duration: 0.5s;
+}
+#list:hover,#list2:hover{  /*鼠标在二级菜单中悬浮*/
+    top:70px;
+}
+.component:hover{
+    background-color: rgb(105, 194, 183);
+    border-radius: 5px;
+    cursor: pointer;
+}

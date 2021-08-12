@@ -1,0 +1,291 @@
+﻿
+
+
+/****************日期插件样式******************/
+.ui-datepicker-append{
+    color: #999999;
+    font-size: 13px;
+    font-family: 'Microsoft YaHei';
+    position: absolute;
+    top: 0px;
+}
+.start-span .ui-datepicker-append{
+    left: 220px;
+}
+.end-span .ui-datepicker-append{
+    left: 488px;
+}
+.ui-datepicker{
+    width: 305px;
+    padding: 0px;
+    border: 1px solid #dcdcdc;
+    border-radius: 0px;
+}
+.ui-datepicker-header{
+    width: 305px;
+    height: 31px;
+    line-height: 31px;
+    border: none;
+    border-radius: 0px;
+    color: #ffffff;
+    padding: 0px;
+    margin: 0px;
+    background: url("../images/ui_header_bg.png") left top repeat-x;
+}
+.ui-datepicker-title,.ui-datepicker-title > span{
+    height: 31px;
+    line-height: 31px;
+    font-family: arial;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px;
+}
+.ui-datepicker th{
+    color: #999;
+    height: 38px;
+    line-height: 38px;
+    font-family: 'Microsoft YaHei';
+    font-size: 12px;
+    margin: 0px;
+    padding: 0px;
+}
+.ui-widget-header .ui-state-default,.ui-state-default{
+    border: none;
+    background:none;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: none;
+    color: #555555;
+    font-size: 12px;
+    background: #fdfdfd;
+    margin: 0px;
+    padding: 0px;
+}
+.ui-datepicker td span{
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
+a.ui-state-default:hover,.ui-datepicker-current-day .ui-state-active {
+    background: #3996ff;
+    color: #ffffff;
+}
+ui-state-hover .ui-icon,.ui-datepicker-next-hover,
+ui-state-hover .ui-icon,.ui-datepicker-prev-hover{
+    background: none;
+}
+
+.ui-datepicker-next:hover,.ui-datepicker-prev:hover{
+    background: none;
+    border: none;
+}
+.ui-widget-header .ui-icon,.ui-state-hover .ui-icon{
+    background: url("../images/ui_date_bg.png") no-repeat;
+    top: 6px;
+}
+.ui-datepicker-next .ui-icon-circle-triangle-e{
+    width: 18px;
+    height: 11px;
+    background-position:0px -22px;
+}
+.ui-datepicker-prev .ui-icon-circle-triangle-e{
+    width: 18px;
+    height: 11px;
+    background-position:0px -0px;
+}
+.ui-datepicker .ui-datepicker-next span{
+    margin: -5px 0px 0px -35px;
+}
+.ui-datepicker .ui-datepicker-prev span{
+    margin: -5px 0px 0px 19px;
+}
+/****************住宿列表******************/
+.stay-list{
+    margin: 28px 0px 30px 0px;
+}
+.stay-list-left,.repast-list-left{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    background: #fdfdfd;
+    position: relative;
+}
+.stay-list-left{
+    width: 410px;
+    height: 350px;
+    padding: 16px 23px 43px 23px;
+    margin: 60px 0 0 10px;
+
+}
+.repast-list-left{
+    width: 380px;
+    height: 265px;
+}
+.search-sign{
+    width: 53px;
+    height: 53px;
+    border-radius: 5px;
+    position: absolute;
+    top: -1px;
+    right: -1px;
+}
+.stay-list-left .search-title{
+    font-size: 25px;
+    font-family: 'Microsoft YaHei';
+    color: #555555;
+}
+.stay-list-left  .sea-div{
+    height: 35px;
+    line-height: 35px;
+    margin-top: 33px;
+    position: relative;
+}
+.stay-list-left .search-lab{
+    width: 84px;
+    text-align: right;
+    display: block;
+    float: left;
+    font-size: 16px;
+}
+.sea-div input[type=text]{
+    width: 205px;
+    height: 33px;
+    line-height: 33px;
+    color: #3996ff;
+    font-family: arial;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    margin-left: 25px;
+    text-indent: 10px;
+    display: block;
+    float: left;
+}
+.sea-div input.hotel-name{
+    line-height: 24px;
+    color: #b8b8b8;
+    width: 90px;
+}
+.sea-div .ui-datepicker-append{
+    left: 320px;
+}
+.stay-list-left .search-but{
+    width: 259px;
+    height: 44px;
+    line-height: 44px;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: "Microsoft YaHei";
+    display: block;
+    float: left;
+    margin: 36px 0px 0px 57px;
+    background: url("../images/more_bg.png") 0px -256px;
+    cursor: pointer;
+}
+.stay-list-left .search-but:hover{
+    background: url("../images/more_bg.png") 0px -206px;
+}
+.stay-list-right{
+    width: 698px;
+    height: 367px;
+    position: relative;
+    overflow: hidden;
+}
+.stay-list-right li{
+    width: 698px;
+    height: 367px;
+}
+.stay-list-right li img{
+    border-radius: 5px;
+}
+.stay-tab-box {
+    margin-bottom: 30px;
+}
+.stay-tab-box .stay-list-box{
+    display: none;
+    margin-bottom: 10px;
+}
+.stay-tab-box .stay-list-box:first-child{
+    display: block;
+}
+.index-title .choose-more span{
+    cursor: pointer;
+    padding:0px 15px;
+    background: url("../images/more_bg.png") 45px -138px no-repeat;
+}
+#stay-list-tab{
+    position: relative;
+}
+.stay-more{
+    width: 240px;
+    border: 2px solid #258bff;
+    border-top: none;
+    background: #f7f6f7;
+    padding: 15px 0px 10px 15px;
+    position: absolute;
+    top: 37px;
+    left: 930px;
+    z-index: 4;
+    display:none;
+}
+.stay-more>a{
+    width: 80px;
+    height: 33px;
+    line-height: 33px;
+    color: #999999;
+    display: block;
+    float: left;
+}
+.stay-more>a:hover{
+    color: #258bff;
+}
+.hotel-search-div{
+    width: 259px;
+    border: 1px solid #dcdcdc;
+    border-top: none;
+    padding: 10px 0px;
+    background: #ffffff;
+    position: absolute;
+    top: 105px;
+    left: 136px;
+    display: none;
+}
+
+.hotel-search-div>ul>li{
+    height: 33px;
+    padding: 0px 10px;
+    line-height: 33px;
+}
+.hotel-search-div>ul>li:hover{
+    background: #e9e9e9;
+}
+
+/* 天气选择 */
+.head{
+    border :1px solid #dcdcdc;
+    width: 205px;
+    height: 33px;
+    line-height: 33px;
+    color: #3996ff;
+    font-family: arial;
+    border-radius: 5px;
+    margin-left: 25px;
+    text-indent: 10px;
+    display: block;
+    float: left;
+    box-shadow: inset 0 2px 5px #eee;
+}
+
+
+
+
+
+/* 查看路线图 */
+.help-tip{position: absolute;top:0px;right:0px;text-align:center;height: 26px;font-size:16px;line-height:26px;cursor:default}
+.help-tip:before{content:'路线图';font-weight:400;color:#000;}
+.help-tip:hover p{display:block;transform-origin:100% 0%;-webkit-animation:fadeIn 0.3s ease-in-out;animation:fadeIn 0.3s ease-in-out;z-index: 100;}
+.help-tip p{display:none;text-align:left;background-color:#1E2021;padding:20px;width:450px;position:absolute;border-radius:3px;box-shadow:1px 1px 1px rgba(0, 0, 0, 0.2);right:-4px;color:#FFF;font-size:13px;line-height:1.4;}
+
+

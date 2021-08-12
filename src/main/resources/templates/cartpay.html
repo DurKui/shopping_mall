@@ -1,0 +1,133 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>支付页</title>
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/font/iconfont.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/css/index2.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css">
+    <script type="text/javascript" src="/layui/layui.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+<body>
+<header>
+    <a href="#" class="logo"> <i class="iconfont icon-shangcheng" style="font-size: 30px;"></i>农产品商城</a>
+    <ul class="menu">
+        <li class="layui-nav-item layui-this"><a href="index"><i class="layui-icon layui-icon-home" style=";font-size: 15px;"></i> 商城首页</a></li>
+        <li class="layui-nav-item"><a href="shopcart"><i class="layui-icon layui-icon-cart-simple" style="font-size: 15px;"></i> 购物车</a></li>
+        <li>
+            <a href="userindent"><i class="layui-icon layui-icon-form" style="font-size: 15px;"></i> 我的订单</a>
+            <ul class="submenu">
+                <li><a href="redeliver">未发货</a></li>
+                <li><a href="delivered">已发货</a></li>
+            </ul>
+        </li>
+        <li class="layui-nav-item">
+            <a href="calendar" target="_blank"><i class="iconfont icon-qiandao" style="font-size: 15px;"></i> 签到</a>
+        </li>
+        <li class="layui-nav-item">
+            <a href="useran"><i class="layui-icon layui-icon-layer" style="font-size: 15px;"></i> 公告栏</a>
+        </li>
+     <!--   <li class="layui-nav-item">
+            <a href="message"><i class="layui-icon layui-icon-layer" style="font-size: 15px;"></i> 留言板</a>
+        </li>-->
+
+        <li class="layui-nav-item" style="width: 250px">
+            <span>
+            <a href="javascript:;">
+                 <i class="iconfont icon-yonghu" style="font-size: 25px;" th:text="${name}"></i>
+
+            </a>
+            </span>
+            <ul class="submenu">
+                <li><a href="userserc">修改密码</a></li>
+            </ul>
+            <dl class="layui-nav-child">
+                <dd><a href="userinf">基本资料</a></dd>
+                <dd><a href="userserc">安全设置</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a href="userlogin">
+                退出登录 <i class="layui-icon layui-icon-logout" style="font-size: 15px;"></i>
+            </a>
+        </li>
+    </ul>
+</header>
+<section class="banner"></section> <div class="sidebar">
+    <ul>
+
+        <li><a href="fru" style="font-size: 20px;">水果</a></li>
+        <li><a href="veg" style="font-size: 20px;">蔬菜</a></li>
+        <li><a href="aqu_product" style="font-size: 20px;">水产</a></li>
+        <li><a href="meat" style="font-size: 20px;">禽畜肉蛋</a></li>
+        <li><a href="noodles" style="font-size: 20px;">粮油米面</a></li>
+        <li><a href="asp" style="font-size: 20px;">农副加工</a></li>
+        <li><a href="plant" style="font-size: 20px;">苗木花草</a></li>
+        <li><a href="http://wpa.qq.com/msgrd?v=3&uin=1311226982&site=qq&menu=yes"  target="_blank" class="ion-social-tux" style="font-size: 20px">售后</a></li>
+    </ul>
+</div>
+<a class="btn" href="#"></a>
+
+<div class="layui-body" style="top:10%" >
+
+    <link rel="stylesheet" href="/css/shutter.css">
+    <!-- 内容主体区域 -->
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+        <legend style=" font-size: 30px ;color: #fff">支付界面</legend>
+    </fieldset>
+
+    <link rel="stylesheet" href="/css/im.css">
+    <div style="margin-top: 30px; float:left ;margin-left: 300px;" class="img"  ><img src="/images/Zfb1.JPG" height="320px" ;width="320x" ;> </div>
+    <div style="margin-top: 40px; float:right ;margin-right: 300px;" class="img"><img src="/images/wx1.png" height="300px" ;width="300px" ;> </div>
+    <br>
+    <form action="carttoindent" method="post">
+        <div style="margin-top: 380px;text-align: center; ">
+            <h2 style="color: #fff">请确认付款</h2>
+            <br>
+            <input type="text" name="money" with="100px" required lay-verify="required">
+            <br>
+            <br>
+        </div>
+        <button style="position: absolute;left: 47%">确认付款</button>
+    </form>
+
+
+
+</div>
+
+</div>
+
+</div>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+
+    });
+    function check(){
+        alert("付款成功！");
+        // window.location.href="index";
+    }
+</script>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+<script>
+    window.onscroll=function(){
+        document.querySelector('header').classList.toggle('sticky',window.scrollY>0)
+    }
+    $(".btn").click(function(){
+        $('.btn').toggleClass('btnc')
+        $('.sidebar').toggleClass('side')
+    })
+</script>
+</body>
+
+</html>
+

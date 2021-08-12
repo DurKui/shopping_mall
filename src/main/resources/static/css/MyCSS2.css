@@ -1,0 +1,86 @@
+@import "http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css";
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        font-family: sans-serif;
+    }
+
+    .sidebar {
+        float: left;
+        width: 100px;
+        margin-left: -100px;
+        height: 100%;
+        background-color: rgb(223, 255, 192);
+        overflow: hidden;
+        transition: 0.8s all;
+    }
+
+    .side {
+        margin-left: 0;
+    }
+
+    /*靠边*/
+    .sidebar ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    .sidebar ul li {
+        list-style: none;
+        text-align:center;
+    }
+
+    .sidebar ul li a {
+        text-decoration: none;
+        color: white;
+        height: 80px;
+        width: 100%;
+        font-size: 40px;
+        line-height: 80px;
+        text-align: center;
+        display: block;
+        transition: 0.6s all;
+        position: relative;
+    }
+
+    .sidebar ul li a:hover {
+    background: #95a5a6;
+    }
+
+    .btn {
+    float: left;
+    padding: 0 10px;
+    font-size: 40px;
+    text-decoration: none;
+    color: #2c3e50;
+    font-family: Ionicons;
+    cursor: pointer;
+    }
+
+    .btn:before {  /*伪类：在指定元素的内容之前插入新内容*/
+    content: '\f20d';
+    }
+
+    .btnc:before {
+    content: '\f12a';
+    }
+    .sidebar ul li .tooltip{
+        position: absolute;
+        left: 100px;
+        top:-200px;
+        border-radius: 5px;
+        height: 90px;
+        width: 100px;
+        background-color: white;
+        line-height: 90px;
+        text-align: center;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        transition: 0s;
+        pointer-events: none;
+    }
+    .sidebar ul li:hover .tooltip{
+        transition: all 0.3s ease;
+        top:340px;
+    }
